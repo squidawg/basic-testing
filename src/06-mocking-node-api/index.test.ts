@@ -2,18 +2,7 @@
 import { readFileAsynchronously, doStuffByTimeout, doStuffByInterval } from '.';
 import { random } from 'lodash';
 import path from 'path';
-import fs from "fs";
-// jest.mock('fs', () => ({
-//   existsSync: jest.fn().mockImplementation(() => Promise.resolve(true)),
-//   promises: {
-//     readFile: jest
-//       .fn()
-//       .mockImplementation((_, callback) =>
-//         callback(null, Buffer.from('content')),
-//       ),
-//   },
-// }));
-
+import fs from 'fs';
 describe('doStuffByTimeout', () => {
   const rand = random(0, 100, false);
   const mockCallback = jest.fn();
@@ -66,7 +55,6 @@ describe('doStuffByInterval', () => {
 });
 
 describe('readFileAsynchronously', () => {
-
   test('should call join with pathToFile', async () => {
     const fileName = 'test.txt';
     path.join = jest.fn();
